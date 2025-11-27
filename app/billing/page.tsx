@@ -283,7 +283,7 @@ export default function BillingPage() {
       </div>
 
       {/* Success/Cancel Messages */}
-      {showSuccess && (
+      {_showSuccess && (
         <Card className="border-emerald-500 bg-emerald-50">
           <CardContent className="pt-6">
             <div className="flex items-center gap-3">
@@ -296,7 +296,7 @@ export default function BillingPage() {
         </Card>
       )}
 
-      {showCanceled && (
+      {_showCanceled && (
         <Card className="border-gray-500 bg-gray-50">
           <CardContent className="pt-6">
             <div className="flex items-center gap-3">
