@@ -1,12 +1,12 @@
 "use client"
 
 import { useState } from "react"
-import { Search, Bell, Settings, User, LogOut, LogIn, DollarSign, UserPlus, AlertTriangle, MessageSquare, Check } from "lucide-react"
+import { Search, Bell, Settings, LogOut, LogIn, DollarSign, UserPlus, AlertTriangle, MessageSquare } from "lucide-react"
 import Link from "next/link"
 import { Input } from "./ui/input"
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 import { Button } from "./ui/button"
-import { Badge } from "./ui/badge"
+// import { Badge } from "./ui/badge"
 import {
   DropdownMenu,
   DropdownMenuContent,

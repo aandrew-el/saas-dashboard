@@ -43,8 +43,8 @@ export default function BillingPage() {
   })
   const [loading, setLoading] = useState(true)
   const [checkoutLoading, setCheckoutLoading] = useState<string | null>(null)
-  const [showSuccess, setShowSuccess] = useState(false)
-  const [showCanceled, setShowCanceled] = useState(false)
+  const [_showSuccess, _setShowSuccess] = useState(false)
+  const [_showCanceled, _setShowCanceled] = useState(false)
 
   // Check for success/cancel params
   useEffect(() => {

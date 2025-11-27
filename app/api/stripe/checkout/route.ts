@@ -30,16 +30,15 @@ export async function POST(request: NextRequest) {
     }
 
     // Get user from Supabase
-    let { data: user, error: userError } = await supabase
+    const { data: user, error: userError } = await supabase
       .from('users')
       .select('*')
       .eq('id', userId)
       .single()
 
     // If user doesn't exist in users table, create them
+    let currentUser = user
     if (userError || !user) {
-      // Get user email from auth
-      const { data: authData } = await supabase.auth.admin.getUserById(userId)
 
       // Create user with the email from the request
       const { data: newUser, error: createError } = await supabase
@@ -60,16 +59,16 @@ export async function POST(request: NextRequest) {
         )
       }
 
-      user = newUser
+      currentUser = newUser
     }
 
-    let customerId = user?.stripe_customer_id
+    let customerId = currentUser?.stripe_customer_id
 
     // Create Stripe customer if doesn't exist
     if (!customerId) {
       const customer = await stripe.customers.create({
-        email: user.email,
-        name: user.name,
+        email: currentUser?.email || email,
+        name: currentUser?.name,
         metadata: {
           supabase_user_id: userId,
         },
