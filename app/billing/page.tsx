@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, Suspense } from "react"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -32,7 +32,20 @@ const PLAN_LIMITS: Record<PlanType, PlanLimits> = {
   enterprise: { users: -1, storage: -1, price: 99 }
 }
 
+// Wrapper component to handle Suspense for useSearchParams
 export default function BillingPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex items-center justify-center h-96">
+        <Loader2 className="h-8 w-8 animate-spin text-indigo-600" />
+      </div>
+    }>
+      <BillingContent />
+    </Suspense>
+  )
+}
+
+function BillingContent() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const { user } = useAuth()
