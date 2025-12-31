@@ -117,7 +117,7 @@ Deploy to Vercel:
 
 ## Author
 
-**Andrew** - 16-year-old full-stack developer
+**Andrew** - Full-stack developer
 
 - GitHub: [@aandrew-el](https://github.com/aandrew-el)
 - LinkedIn: [andrew-e-921028390](https://linkedin.com/in/andrew-e-921028390)
